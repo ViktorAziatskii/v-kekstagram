@@ -1,8 +1,6 @@
 /*проверка длины строки*/
 
-function examinationStringLength (string, maxLength) {
-  return string.length <= maxLength;
-}
+const examinationStringLength = (str, maxLength) => str.length <= maxLength;
 
 /*проверка палиндрома
  Строка является палиндромом
@@ -14,5 +12,5 @@ function examinationStringLength (string, maxLength) {
 */
 
 function checkPalindrome (string) {
-  return string.replaceAll(' ', ' ').toLowerCase() === string.replaceAll(' ', '').toLowerCase().split('').reverse(' ').join('');
+  return string.replaceAll(' ', '').toLowerCase() === string.replaceAll(' ', '').toLowerCase().split('').reverse(' ').join('');
 }
