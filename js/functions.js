@@ -11,6 +11,5 @@ const examinationStringLength = (str, maxLength) => str.length <= maxLength;
 имяФункции('Кекс');  // false
 */
 
-function checkPalindrome (string) {
-  return string.replaceAll(' ', '').toLowerCase() === string.replaceAll(' ', '').toLowerCase().split('').reverse(' ').join('');
-}
+const checkPalindrome = (str) => str.replaceAll(' ', '').toLowerCase() === str.replaceAll(' ', '').toLowerCase().split('').reverse(' ').join('');
+
