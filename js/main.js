@@ -35,16 +35,14 @@ const DESCRIPTION_PHOTOS = [
   'погружение с аквалалангом'
 ];
 
-// eslint-disable-next-line no-unused-vars
 const MAX_COMMENTS = 5;
 
-// eslint-disable-next-line no-unused-vars
 const MIN_LIKES = 15;
 
-// eslint-disable-next-line no-unused-vars
 const MAX_LIKES = 200;
 
-// eslint-disable-next-line no-unused-vars
+const MAX_COMMENTS_ID = 10;
+
 const AVATAR_COUNT = 6;
 
 const getRandomInteger = (a, b) => {
@@ -57,8 +55,8 @@ const getRandomInteger = (a, b) => {
 const getRandomArrayElement = (elements) => elements[getRandomInteger(0, elements.length - 1)];
 
 const createComment = () => ({
-  id: getRandomInteger(1, 10),
-  avatar: `img/avatar-${getRandomInteger(1, 6)}.svg`,
+  id: getRandomInteger(1, MAX_COMMENTS_ID),
+  avatar: `img/avatar-${getRandomInteger(1, AVATAR_COUNT)}.svg`,
   message: getRandomArrayElement(MESSAGE_PHOTOS),
   name: getRandomArrayElement(AUTHOR_NAMES)
 });
@@ -67,9 +65,9 @@ const createDescription = (_, index) => ({
   id: index + 1,
   url: `photos/${index + 1}.jpg`,
   description: getRandomArrayElement(DESCRIPTION_PHOTOS),
-  likes: getRandomInteger(15, 200),
+  likes: getRandomInteger(MIN_LIKES, MAX_LIKES),
   comments: Array.from({
-    length: getRandomInteger(0, 5) },
+    length: getRandomInteger(0, MAX_COMMENTS) },
   createComment
   )
 });
