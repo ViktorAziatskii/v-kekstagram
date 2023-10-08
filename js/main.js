@@ -4,6 +4,6 @@ import './util.js';
 
 import { similarDescription } from './data.js';
 
-import { renderThumbnails } from './thambnail.js';
+import { renderThumbnails } from './thumbnail.js';
 
-renderThumbnails(similarDescription());
+renderThumbnails(similarDescription);

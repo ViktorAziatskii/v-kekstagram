@@ -67,4 +67,4 @@ const createDescription = (_, index) => ({
 
 const similarDescription = Array.from({length: ID_PHOTOS}, createDescription);
 
-export {similarDescription};
+export { similarDescription };
