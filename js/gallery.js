@@ -1,3 +1,5 @@
+import { renderThumbnails } from './thumbnail.js';
+
 import { showBigPicture } from './large-photo.js';
 
 const container = document.querySelector('.pictures');
