@@ -51,7 +51,7 @@ const hideBigPicture = () => {
   bodyElement.classList.remove('modal-open');
   document.removeEventListener('keydown', onDocumentKeydown);
   commentsShown = 0;
-};
+};//закрыть окно
 
 function onDocumentKeydown(evt) {
   if (isEscapeKey(evt)) {
@@ -86,7 +86,7 @@ const showBigPicture = (data) => {
   if (comments.length > 0) {
     renderComments();
   }
-};
+};//открыть окно
 
 cancelButtonElement.addEventListener('click', onCancelButtonClick);
 commentsLoaderElement.addEventListener('click', onCommentsLoaderClick);
