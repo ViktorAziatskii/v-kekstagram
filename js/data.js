@@ -37,7 +37,7 @@ const DESCRIPTION_PHOTOS = [
   'погружение с аквалалангом'
 ];
 
-const MAX_COMMENTS = 5;
+const MAX_COMMENTS = 25;
 
 const MIN_LIKES = 15;
 
