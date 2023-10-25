@@ -1,3 +1,5 @@
+
+
 const MAX_HASHTAG_COUNT = 5;
 const VALID_SYMBOLS = /^#[a-za-яё0-0]{1,19}$/i;
 const ErrorText = {
