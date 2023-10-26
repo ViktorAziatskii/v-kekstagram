@@ -15,17 +15,24 @@ const scaleImage = (value) => {
 };
 
 const onSmallerButtonClick = () => {
-  scaleImage(
-    Math.max(parseInt(scaleInputElement.value, 10) - SCALE_STEP, MIN_SCALE)
-  );
+  const currentValue = parseInt(scaleInputElement.value, 10);
+  const newValue = currentValue - SCALE_STEP;
+  if (newValue < MIN_SCALE) {
+    scaleImage(MIN_SCALE);
+  } else {
+    scaleImage(newValue);
+  }
 };
 
 const onBiggerButtonClick = () => {
-  scaleImage(
-    Math.min(parseInt(scaleInputElement.value, 10) + SCALE_STEP, MAX_SCALE)
-  );
+  const currentValue = parseInt(scaleInputElement.value, 10);
+  const newValue = currentValue + SCALE_STEP;
+  if (newValue > MAX_SCALE) {
+    scaleImage(MAX_SCALE);
+  } else {
+    scaleImage(newValue);
+  }
 };
-
 
 const resetScale = () => scaleImage(DEFAULT_SCALE);
 

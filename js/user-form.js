@@ -1,4 +1,8 @@
-
+import { resetScale } from './form-scale.js';
+import {
+  init as initEffect,
+  reset as resetEffect
+} from './form-effect.js';
 
 const MAX_HASHTAG_COUNT = 5;
 const VALID_SYMBOLS = /^#[a-za-яё0-0]{1,19}$/i;
@@ -30,6 +34,8 @@ const showModal = () => {
 
 const hideModal = () => {
   form.reset();
+  resetScale();
+  resetEffect();
   pristine.reset();
   overlay.classList.add('hidden');
   body.classList.remove('modal-open');
@@ -98,6 +104,7 @@ pristine.addValidator(
 fileField.addEventListener('change', onFileInputChange);
 cancelButton.addEventListener('click', onCancelButtonClick);
 form.addEventListener('submit', onFormSubmit);
+initEffect();
 
 commentField.addEventListener('keydown', (evt) => {
   if (evt.key === 'Escape') {
