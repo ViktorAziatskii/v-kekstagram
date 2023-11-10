@@ -1,5 +1,3 @@
-import {isEscapeKey} from './util.js';
-
 const COMMENTS_PER_PORTION = 5;
 
 const bigPictureElement = document.querySelector('.big-picture');
@@ -54,7 +52,7 @@ const hideBigPicture = () => {
 };//закрыть окно
 
 function onDocumentKeydown(evt) {
-  if (isEscapeKey(evt)) {
+  if (evt.key === 'Escape') {
     evt.preventDefault();
     hideBigPicture();
   }
