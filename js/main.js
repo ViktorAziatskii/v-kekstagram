@@ -1,14 +1,26 @@
-import './data.js';
-
-import './util.js';
-
-import './user-form.js';
+import { showAlert } from './util.js';
 
 import { renderGallery } from './gallery.js';
 
-import { similarDescription } from './data.js';
+import { getData, sendData } from './api.js';
 
-import { renderThumbnails } from './thumbnail.js';
+import { showSuccessMessage, showErrorMessage } from './message.js';
 
-renderThumbnails(similarDescription);
-renderGallery(similarDescription);
+import { setOnFormSubmit, hideModal } from './user-form.js';
+
+setOnFormSubmit(async (data) => {
+  try{
+    await sendData(data);
+    hideModal();
+    showSuccessMessage();
+  } catch {
+    showErrorMessage();
+  }
+});
+
+try {
+  const data = await getData();
+  renderGallery(data);
+} catch (err) {
+  showAlert(err.message);
+}
