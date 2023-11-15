@@ -8,6 +8,8 @@ import { showSuccessMessage, showErrorMessage } from './message.js';
 
 import { setOnFormSubmit, hideModal } from './user-form.js';
 
+import { init, getFilteredPictures } from './filter.js';
+
 setOnFormSubmit(async (data) => {
   try{
     await sendData(data);
@@ -20,7 +22,9 @@ setOnFormSubmit(async (data) => {
 
 try {
   const data = await getData();
-  renderGallery(data);
+  const debouncedRenderGallery = debounce(renderGallery);
+  init(data, debouncedRenderGallery);
+  renderGallery(getFilteredPictures());
 } catch (err) {
   showAlert(err.message);
 }

@@ -18,12 +18,13 @@ const showAlert = (message) => {
     alert.remove();
   }, ALERT_SHOW_TIME);
 };
+const TIMEOUT_DELAY = 500;
 
-function debounce (callback, timeoutDelay) {
+function debounce (callback) {
   let timeoutId;
   return (...rest) => {
     clearTimeout(timeoutId);
-    timeoutId = setTimeout(() => callback.apply(this, rest), timeoutDelay);
+    timeoutId = setTimeout(() => callback.apply(this, rest), TIMEOUT_DELAY);
   };
 }
 
