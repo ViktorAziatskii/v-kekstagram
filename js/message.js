@@ -30,13 +30,17 @@ function onDocumentKeydown(evt) {
   }
 }
 
+const onMessageClose = () => {
+  hideMessage();
+};
+
 const showMessage = (messageElement, closeButtonClass) => {
   body.append(messageElement);
   document.addEventListener('keydown', onDocumentKeydown);
   body.addEventListener('click', onBodyClick);
   messageElement
     .querySelector(closeButtonClass)
-    .addEventListener('click', hideMessage);
+    .addEventListener('click', onMessageClose);
 };
 
 const showSuccessMessage = () => {
