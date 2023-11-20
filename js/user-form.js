@@ -4,6 +4,7 @@ import {
   reset as resetEffect
 } from './form-effect.js';
 
+const FILE_TYPES = ['jpg', 'jpeg', 'png'];
 const MAX_HASHTAG_COUNT = 5;
 const VALID_SYMBOLS = /^#[a-za-яё0-0]{1,19}$/i;
 const ErrorText = {
@@ -17,6 +18,7 @@ const SubmitButtonText = {
 };
 const body = document.querySelector('body');
 const form = document.querySelector('.img-upload__form');
+const imageElement = document.querySelector('.img-upload__preview img');
 const overlay = form.querySelector('.img-upload__overlay');
 const cancelButton = form.querySelector('.img-upload__cancel');
 const fileField = form.querySelector('.img-upload__input');
@@ -86,7 +88,15 @@ const onCancelButtonClick = () => {
 };
 
 const onFileInputChange = () => {
-  showModal();
+  const file = fileField.files[0];
+  const fileName = file.name.toLowerCase();
+
+  const matches = FILE_TYPES.some((it) => fileName.endsWith(it));
+
+  if(matches) {
+    imageElement.src = URL.createObjectURL(file);
+    showModal();
+  }
 };
 
 const setOnFormSubmit = (callback) => {
